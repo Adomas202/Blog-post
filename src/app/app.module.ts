@@ -4,8 +4,12 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { BlogsComponent } from './blogs/blogs.component';
-import { BlogListComponent } from './blogs/blog-list/blog-list.component';
-import { BlogDetailComponent } from './blogs/blog-list/blog-detail/blog-detail.component';
+import { BlogListComponent } from './blog-list/blog-list.component';
+import { BlogDetailComponent } from './blog-detail/blog-detail.component';
+import { BlogEditComponent } from './blog-detail/blog-edit/blog-edit.component';
+import {RouterModule} from '@angular/router';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { BlogsNewComponent } from './blogs-new/blogs-new.component';
 
 @NgModule({
   declarations: [
@@ -13,10 +17,20 @@ import { BlogDetailComponent } from './blogs/blog-list/blog-detail/blog-detail.c
     HeaderComponent,
     BlogsComponent,
     BlogListComponent,
-    BlogDetailComponent
+    BlogDetailComponent,
+    BlogEditComponent,
+    PageNotFoundComponent,
+    BlogsNewComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot([
+      {path: '', component: BlogListComponent},
+      {path: 'posts-details/:id', component: BlogDetailComponent},
+      {path: 'posts-edit', component: BlogEditComponent},
+      {path: 'posts-new', component: BlogsNewComponent},
+      {path: '**', component: PageNotFoundComponent},
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
