@@ -10,6 +10,7 @@ import { BlogEditComponent } from './blog-detail/blog-edit/blog-edit.component';
 import {RouterModule} from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { BlogsNewComponent } from './blogs-new/blogs-new.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { BlogsNewComponent } from './blogs-new/blogs-new.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot([
       {path: '', component: BlogListComponent},
       {path: 'posts-details/:id', component: BlogDetailComponent},
