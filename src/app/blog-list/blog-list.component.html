@@ -1,5 +1,14 @@
 <div class="row">
   <div class="col-sx-10">
-    <p>The list</p>
+    <app-blogs-new (postAdded)="onPostAdded($event)"></app-blogs-new>
+    <ul class="list-group">
+      <a class="list-group-item"
+         style="cursor: pointer"
+         *ngFor="let Post of posts"
+        >
+        <h1>{{Post.name}}</h1>
+        <hr>{{Post.text}}
+      </a>
+    </ul>
   </div>
 </div>

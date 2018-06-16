@@ -1,7 +1,7 @@
 <form>
   <div class="form-group">
     <label for="postName">Post Name</label>
-    <input required minlength="4" ngModel name="postName" #postName="ngModel" id="postName" type="text" (change)="get(postName)" class="form-control">
+    <input required minlength="4" ngModel name="postName" #nameInput #postName="ngModel" id="postName" type="text" (change)="get(postName)" class="form-control">
     <div class="alert alert-danger" *ngIf="postName.touched && !postName.valid">
       <div *ngIf="postName?.errors.required">Please enter Post name</div>
       <div *ngIf="postName?.errors.minLength">Needs 4 chars</div>
@@ -9,8 +9,8 @@
   </div>
   <div class="form-group">
     <label for="postText">Post Text</label>
-    <textarea ngModel name="postText" class="form-control" id="postText" cols="30" rows="10">
+    <textarea ngModel #textInput name="postText" class="form-control" id="postText" cols="30" rows="10">
     </textarea>
   </div>
-  <button class="btn btn-primary">Save</button>
+  <button class="btn btn-primary" type="submit" (click)="onAddPost()">Submit</button>
 </form>

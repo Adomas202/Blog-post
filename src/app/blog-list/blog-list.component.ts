@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Post } from '../post';
 
 @Component({
   selector: 'app-blog-list',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./blog-list.component.css']
 })
 export class BlogListComponent implements OnInit {
+  posts: Post[] = [
+    new Post('Blogas', 'blogiukas' ),
+    new Post('Kitas', 'Blogiukas' ),
+  ];
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onPostAdded(post: Post) {
+    this.posts.push(post);
   }
 
 }
