@@ -28,7 +28,7 @@ import {FormsModule} from '@angular/forms';
     FormsModule,
     RouterModule.forRoot([
       {path: '', component: BlogListComponent},
-      {path: 'posts-details/:id', component: BlogDetailComponent},
+      {path: 'posts-details', component: BlogDetailComponent},
       {path: 'posts-edit', component: BlogEditComponent},
       {path: 'posts-new', component: BlogsNewComponent},
       {path: '**', component: PageNotFoundComponent},

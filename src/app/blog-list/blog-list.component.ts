@@ -7,18 +7,22 @@ import { Post } from '../post';
   styleUrls: ['./blog-list.component.css']
 })
 export class BlogListComponent implements OnInit {
-  posts: Post[] = [
-    new Post('Blogas', 'blogiukas' ),
-    new Post('Kitas', 'Blogiukas' ),
-  ];
+  public posts: Post[];
 
-  constructor() { }
+  constructor() {
+    this.posts = this.getPosts();
+  }
 
   ngOnInit() {
   }
 
-  onPostAdded(post: Post) {
-    this.posts.push(post);
+  public getPosts(): Post[] {
+    let localStorageItem = JSON.parse(localStorage.getItem('posts'));
+    return localStorageItem == null ? [] : localStorageItem.posts;
+  }
+
+  public inspectPost(id: number): void {
+    
   }
 
 }

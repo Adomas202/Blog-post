@@ -11,6 +11,6 @@
     <label for="postText">Post Text</label>
     <textarea ngModel #textInput name="postText" class="form-control" id="postText" cols="30" rows="10">
     </textarea>
+  <button class="btn btn-primary" type="submit" (click)="onPostAdded(nameInput.value, textInput.value)">Submit</button>
   </div>
-  <button class="btn btn-primary" type="submit" (click)="onAddPost()">Submit</button>
 </form>

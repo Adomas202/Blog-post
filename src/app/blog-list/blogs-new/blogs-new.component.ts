@@ -1,5 +1,4 @@
 import {Component, ElementRef, OnInit, ViewChild, EventEmitter, Output} from '@angular/core';
-// import {EventEmitter} from 'selenium-webdriver';
 import { Post } from '../../post';
 
 @Component({
@@ -12,16 +11,35 @@ export class BlogsNewComponent implements OnInit {
   @ViewChild( 'textInput') textInutRedf: ElementRef;
   @Output() postAdded = new EventEmitter<Post>();
 
-  constructor() { }
+  private nextId: number;
+
+  constructor() {
+    let posts = this.getPosts();
+    if (posts.length == 0) {
+      this.nextId = 0;
+    } else {
+      let maxId = posts[posts.length - 1].id;
+      this.nextId = maxId + 1;
+    }
+  }
 
   ngOnInit() {
   }
 
-  onAddPost() {
-    const postName = this.nameInputRef.nativeElement.value;
-    const postText = this.nameInputRef.nativeElement.value;
-    const newPost = new Post(postName, postText);
-    this.postAdded.emit(newPost);
+  public getPosts(): Post[] {
+    let localStorageItem = JSON.parse(localStorage.getItem('posts'));
+    return localStorageItem == null ? [] : localStorageItem.posts;
+  }
+
+  private setLocalStoragePosts(posts: Post[]): void {
+    localStorage.setItem('posts', JSON.stringify({posts: posts}));
+  }
+
+  public onPostAdded(name: string, text: string): void {
+    let post = new Post(this.nextId, name, text);
+    let posts = this.getPosts();
+    posts.push(post);
+    this.setLocalStoragePosts(posts);
   }
 
 }

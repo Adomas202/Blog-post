@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sx-10">
-    <app-blogs-new (postAdded)="onPostAdded($event)"></app-blogs-new>
+    <!--<app-blogs-new></app-blogs-new>-->
     <ul class="list-group">
       <a class="list-group-item"
          style="cursor: pointer"
@@ -8,6 +8,8 @@
         >
         <h1>{{Post.name}}</h1>
         <hr>{{Post.text}}
+        <br>
+        <a routerLink="posts-details"><button class="btn btn-primary" (click)="inspectPost()">Read</button></a>
       </a>
     </ul>
   </div>
