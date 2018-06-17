@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../post';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-blog-list',
@@ -9,7 +10,7 @@ import { Post } from '../post';
 export class BlogListComponent implements OnInit {
   public posts: Post[];
 
-  constructor() {
+  constructor(private data: DataService) {
     this.posts = this.getPosts();
   }
 
@@ -22,7 +23,7 @@ export class BlogListComponent implements OnInit {
   }
 
   public inspectPost(id: number): void {
-    
+    this.data.changeSelectedId(id);
   }
 
 }

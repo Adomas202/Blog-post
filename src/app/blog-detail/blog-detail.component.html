@@ -1,3 +1,8 @@
-<h1>{{Post.name}}</h1>
-<hr>{{Post.text}}
-<button class="btn btn-primary" (click)="inspectPost()">{{Post.id}}</button>
+<div class="container col-xs-10">
+  <div>
+    <h1>{{name}}</h1>
+  <hr>
+  {{text}}
+  </div>
+  <a routerLink="../posts-edit"><button class="btn btn-primary">Edit</button></a>
+</div>

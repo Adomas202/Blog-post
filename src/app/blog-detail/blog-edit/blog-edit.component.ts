@@ -12,4 +12,8 @@ export class BlogEditComponent implements OnInit {
   ngOnInit() {
   }
 
+  onPostEdited() {
+    
+  }
+
 }

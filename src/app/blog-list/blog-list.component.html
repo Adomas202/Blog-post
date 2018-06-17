@@ -9,7 +9,7 @@
         <h1>{{Post.name}}</h1>
         <hr>{{Post.text}}
         <br>
-        <a routerLink="posts-details"><button class="btn btn-primary" (click)="inspectPost()">Read</button></a>
+        <a routerLink="posts-details"><button class="btn btn-primary" (click)="inspectPost(Post.id)">Read</button></a>
       </a>
     </ul>
   </div>
