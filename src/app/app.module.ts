@@ -10,8 +10,9 @@ import { BlogEditComponent } from './blog-detail/blog-edit/blog-edit.component';
 import {RouterModule} from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { BlogsNewComponent } from './blog-list/blogs-new/blogs-new.component';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { DataService } from './data.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { DataService } from './data.service';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       {path: '', component: BlogListComponent},
       {path: 'posts-details', component: BlogDetailComponent},

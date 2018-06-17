@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Post} from '../../post';
 import { DataService } from '../../data.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-blog-edit',
@@ -8,11 +9,25 @@ import { DataService } from '../../data.service';
   styleUrls: ['./blog-edit.component.css']
 })
 export class BlogEditComponent implements OnInit {
-  public id: number;
-  public name: string;
-  text: string;
+  id: number;
+  name: string = '';
+  text: string = '';
+  rForm: FormGroup;
+  post: any;                     // A property for our submitted form
+  titleAlert: string = 'This field is required';
 
-  constructor(private data: DataService) { }
+  constructor(private data: DataService, private fb: FormBuilder) {
+    this.rForm = fb.group({
+      'name': [null, Validators.required],
+      'text': [null, Validators.compose([Validators.required, Validators.minLength(30), Validators.maxLength(500)])],
+      'validate': ''
+    });
+  }
+
+  addPost(post) {
+    this.text = post.text;
+    this.name = post.name;
+  }
 
   public ngOnInit() {
     this.data.currentPost.subscribe(id => this.id = id);
