@@ -6,7 +6,7 @@
          style="cursor: pointer"
          *ngFor="let Post of posts"
         >
-        <h1>{{Post.name}}</h1>
+        <h1>{{Post.name | titlecase}}</h1>
         <hr>{{Post.text}}
         <br>
         <a routerLink="posts-details"><button class="btn btn-primary" (click)="inspectPost(Post.id)">Read</button></a>

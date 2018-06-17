@@ -1,4 +1,4 @@
-<form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
+<form [formGroup]="rForm">
   <div class="form-group">
     <label for="postName">Post Name</label>
     <input required minlength="4" ngModel formControlName="name" name="postName" #nameInput id="postName" type="text" [(ngModel)]="name" class="form-control">

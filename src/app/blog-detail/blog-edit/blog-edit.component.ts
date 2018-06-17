@@ -10,8 +10,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class BlogEditComponent implements OnInit {
   id: number;
-  name: string = '';
-  text: string = '';
+  public name: string;
+  public text: string;
   rForm: FormGroup;
   post: any;                     // A property for our submitted form
   titleAlert: string = 'This field is required';
@@ -22,11 +22,6 @@ export class BlogEditComponent implements OnInit {
       'text': [null, Validators.compose([Validators.required, Validators.minLength(30), Validators.maxLength(500)])],
       'validate': ''
     });
-  }
-
-  addPost(post) {
-    this.text = post.text;
-    this.name = post.name;
   }
 
   public ngOnInit() {

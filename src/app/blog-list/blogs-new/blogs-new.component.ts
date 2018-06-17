@@ -1,6 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild, EventEmitter, Output} from '@angular/core';
 import { Post } from '../../post';
 import {FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {DataService} from '../../data.service';
 
 @Component({
   selector: 'app-blogs-new',
@@ -19,14 +20,14 @@ export class BlogsNewComponent implements OnInit {
   name: string = '';
   titleAlert: string = 'This field is required';
 
-  constructor(private fb: FormBuilder) {
+  constructor(private data: DataService, fb: FormBuilder) {
     this.rForm = fb.group({
       'name': [null, Validators.required],
       'text': [null, Validators.compose([Validators.required, Validators.minLength(30), Validators.maxLength(500)])],
       'validate' : ''
     });
 
-    let posts = this.getPosts();
+    let posts = this.data.getPosts();
     if (posts.length == 0) {
       this.nextId = 0;
     } else {
@@ -43,18 +44,13 @@ export class BlogsNewComponent implements OnInit {
   ngOnInit() {
   }
 
-  public getPosts(): Post[] {
-    let localStorageItem = JSON.parse(localStorage.getItem('posts'));
-    return localStorageItem == null ? [] : localStorageItem.posts;
-  }
-
   private setLocalStoragePosts(posts: Post[]): void {
     localStorage.setItem('posts', JSON.stringify({posts: posts}));
   }
 
   public onPostAdded(name: string, text: string): void {
     let post = new Post(this.nextId, name, text);
-    let posts = this.getPosts();
+    let posts = this.data.getPosts();
     posts.push(post);
     this.setLocalStoragePosts(posts);
   }

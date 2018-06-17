@@ -14,5 +14,8 @@ export class DataService {
 
   changeSelectedId(id: number) {
     this.selectedPost.next(id);
-  }
 }
+  public getPosts(): Post[] {
+    let localStorageItem = JSON.parse(localStorage.getItem('posts'));
+    return localStorageItem == null ? [] : localStorageItem.posts;
+  }

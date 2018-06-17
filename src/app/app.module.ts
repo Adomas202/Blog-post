@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { BlogsComponent } from './blogs/blogs.component';
 import { BlogListComponent } from './blog-list/blog-list.component';
 import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import { BlogEditComponent } from './blog-detail/blog-edit/blog-edit.component';
@@ -18,7 +17,6 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     HeaderComponent,
-    BlogsComponent,
     BlogListComponent,
     BlogDetailComponent,
     BlogEditComponent,

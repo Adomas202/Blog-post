@@ -3,23 +3,15 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { BlogListComponent } from './blog-list.component';
 
 describe('BlogListComponent', () => {
-  let component: BlogListComponent;
-  let fixture: ComponentFixture<BlogListComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ BlogListComponent ]
-    })
-    .compileComponents();
-  }));
-
   beforeEach(() => {
-    fixture = TestBed.createComponent(BlogListComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    TestBed.configureTestingModule({
+      declarations: [BlogListComponent]
+    });
+  })
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should create the list', () => {
+    let fixture = TestBed.createComponent(BlogListComponent);
+    let app = fixture.debugElement.componentInstance;
+    expect(app).toBeTruthy();
   });
 });
