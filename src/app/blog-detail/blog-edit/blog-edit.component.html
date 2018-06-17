@@ -14,5 +14,6 @@
     <textarea ngModel #textInput name="postText" [(ngModel)]="text" class="form-control" id="postText" cols="30" rows="10">
     </textarea>
     <button class="btn btn-primary" type="submit" (click)="onPostEdited(nameInput.value, textInput.value)">Save</button>
+    <a routerLink=""><button class="btn btn-danger" type="submit" (click)="onPostDelete()">Delete</button></a>
   </div>
 </form>

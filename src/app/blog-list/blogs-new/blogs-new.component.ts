@@ -7,9 +7,6 @@ import { Post } from '../../post';
   styleUrls: ['./blogs-new.component.css']
 })
 export class BlogsNewComponent implements OnInit {
-  @ViewChild( 'nameInput') nameInputRef: ElementRef;
-  @ViewChild( 'textInput') textInutRedf: ElementRef;
-  @Output() postAdded = new EventEmitter<Post>();
 
   private nextId: number;
 

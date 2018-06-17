@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Post} from '../../post';
 import { DataService } from '../../data.service';
-import {post} from 'selenium-webdriver/http';
 
 @Component({
   selector: 'app-blog-edit',
@@ -30,14 +29,16 @@ export class BlogEditComponent implements OnInit {
     posts[this.id].text = text;
     localStorage.setItem('posts', JSON.stringify({posts: posts}));
   }
-  //
-  // private setLocalStoragePosts(posts: Post[]): void {
-  //   localStorage.setItem('posts', JSON.stringify({posts: posts}));
-  // }
 
   public getPosts(): Post[] {
     let localStorageItem = JSON.parse(localStorage.getItem('posts'));
     return localStorageItem == null ? [] : localStorageItem.posts;
+  }
+
+  onPostDelete() {
+    let posts = this.getPosts();
+    posts = posts.filter((post)=>post.id != this.id);
+    localStorage.setItem('posts', JSON.stringify({posts: posts}));
   }
 
 }
