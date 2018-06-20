@@ -18,6 +18,6 @@ NgModule({
     FormsModule,
     ReactiveFormsModule,
   ]
-})
+});
 
 export class BlogModule {}
