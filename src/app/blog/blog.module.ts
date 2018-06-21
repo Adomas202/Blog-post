@@ -6,7 +6,7 @@ import {BlogDetailComponent} from './blog-detail/blog-detail.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 
-NgModule({
+@NgModule({
   declarations: [
     BlogListComponent,
     BlogsNewComponent,
@@ -18,6 +18,6 @@ NgModule({
     FormsModule,
     ReactiveFormsModule,
   ]
-});
+})
 
 export class BlogModule {}

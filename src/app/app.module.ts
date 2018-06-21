@@ -6,27 +6,21 @@ import { HeaderComponent } from './header/header.component';
 import { BlogListComponent } from './blog/blog-list/blog-list.component';
 import { BlogDetailComponent } from './blog/blog-detail/blog-detail.component';
 import { BlogEditComponent } from './blog/blog-edit/blog-edit.component';
-import {RouterModule} from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { BlogsNewComponent } from './blog/blogs-new/blogs-new.component';
-import { FormsModule } from '@angular/forms';
-import { DataService } from './data.service';
-import { ReactiveFormsModule } from '@angular/forms';
+import {BlogModule} from './blog/blog.module';
+import {DataService} from './data.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    BlogListComponent,
-    BlogDetailComponent,
-    BlogEditComponent,
     PageNotFoundComponent,
-    BlogsNewComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
+    BlogModule,
     RouterModule.forRoot([
       {path: '', component: BlogListComponent},
       {path: 'posts-details', component: BlogDetailComponent},
