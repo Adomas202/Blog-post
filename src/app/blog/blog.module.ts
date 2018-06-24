@@ -5,6 +5,7 @@ import {BlogEditComponent} from './blog-edit/blog-edit.component';
 import {BlogDetailComponent} from './blog-detail/blog-detail.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
+import {BlogRoutingModule} from './blog-routing.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {CommonModule} from '@angular/common';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    BlogRoutingModule,
   ]
 })
 
