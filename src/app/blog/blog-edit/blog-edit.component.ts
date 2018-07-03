@@ -30,13 +30,13 @@ export class BlogEditComponent implements OnInit {
     let posts = this.getPosts();
     posts = posts.filter((post)=>post.id == this.id);
     this.name = posts[0].name;
-    this.text = posts[0].text;
+    this.text = posts[0].description;
   }
 
   onPostEdited(name: string, text: string) {
     let posts = this.getPosts();
     posts[this.id].name = name;
-    posts[this.id].text = text;
+    posts[this.id].description = text;
     localStorage.setItem('posts', JSON.stringify({posts: posts}));
   }
 

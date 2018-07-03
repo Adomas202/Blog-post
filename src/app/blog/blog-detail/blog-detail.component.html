@@ -1,8 +1,8 @@
 <div class="container col-xs-10">
   <div>
-    <h1>{{name}}</h1>
+    <h1>{{post?.name | uppercase}}</h1>
   <hr>
-  {{text}}
+  {{post?.description}}
   </div>
   <a routerLink="../posts-edit"><button class="btn btn-primary">Edit</button></a>
 </div>

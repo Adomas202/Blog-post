@@ -4,12 +4,12 @@
     <ul class="list-group">
       <a class="list-group-item"
          style="cursor: pointer"
-         *ngFor="let Post of posts"
+         *ngFor="let post of posts"
         >
-        <h1>{{Post.name | titlecase}}</h1>
-        <hr>{{Post.text}}
+        <h1>{{post.name | titlecase}}</h1>
+        <hr>{{post.description}}
         <br>
-        <a routerLink="/posts-details"><button class="btn btn-primary" (click)="inspectPost(Post.id)">Read</button></a>
+        <a [routerLink]="['/posts-details', post.id]"><button class="btn btn-primary">Read</button></a>
       </a>
     </ul>
   </div>

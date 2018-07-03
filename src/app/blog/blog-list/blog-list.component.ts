@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../../post';
 import { DataService } from '../../data.service';
+import {BlogService} from '../../_services/blog.service';
 
 @Component({
   selector: 'app-blog-list',
@@ -10,15 +11,18 @@ import { DataService } from '../../data.service';
 export class BlogListComponent implements OnInit {
   public posts: Post[];
 
-  constructor(private data: DataService) {
-    this.posts = this.data.getPosts();
+  constructor(private dataService: DataService, private blogService: BlogService) {
+    this.posts = this.dataService.getPosts();
+
+    blogService.getAllBlogs()
+      .subscribe(data => this.posts = data);
   }
 
   ngOnInit() {
   }
 
   public inspectPost(id: number): void {
-    this.data.changeSelectedId(id);
+    this.dataService.changeSelectedId(id);
   }
 
 }
