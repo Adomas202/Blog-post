@@ -10,7 +10,7 @@ import {BlogEditComponent} from './blog/blog-edit/blog-edit.component';
 
 const appRoutes: Routes = [
   {
-    path: 'labas', loadChildren: 'app/blog/blogs.module#BlogsModule'
+    path: 'posts', loadChildren: 'app/blog/blog-list'
   },
   {path: '**', component: PageNotFoundComponent},
 ];
